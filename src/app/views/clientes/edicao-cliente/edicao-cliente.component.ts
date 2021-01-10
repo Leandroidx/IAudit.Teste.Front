@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ClienteService } from '../../../services/cliente.service';  
 import { FormGroup, FormControl,Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import Cliente from 'src/app/models/cliente.Models';
 
 @Component({
@@ -11,8 +12,11 @@ import Cliente from 'src/app/models/cliente.Models';
 export class EdicaoClientesComponent {
   title = 'IAudit';
 
-  constructor(private clienteService: ClienteService, private route: ActivatedRoute) { }  
+  constructor(private clienteService: ClienteService, 
+    private route: ActivatedRoute,
+    private router: Router) { }  
   cliente: any;  
+  clienteEnderecos: any;  
   ClienteForm: FormGroup;  
   postado = false;   
   idCliente: number = 0;
@@ -21,7 +25,7 @@ export class EdicaoClientesComponent {
 
     this.idCliente = parseInt(this.route.snapshot.paramMap.get('id'));
     this.obterCliente(this.idCliente);
-    console.log(this.idCliente);
+    this.listarEnderecos(this.idCliente);
 
     this.ClienteForm = new FormGroup({  
       IdCliente: new FormControl(null),  
@@ -48,7 +52,6 @@ export class EdicaoClientesComponent {
       return;  
     }  
 
-
     this.clienteService.editarCliente(this.ClienteForm.value)
       .subscribe(cliente => {
         this.cliente = cliente;
@@ -72,6 +75,32 @@ export class EdicaoClientesComponent {
     this.ClienteForm.controls["DataNascimento"].setValue(data.dataNascimento);  
     this.ClienteForm.controls["Descricao"].setValue(data.descricao);  
 
+  } 
+
+  editarEndereco(idClienteEndereco: any) {
+    this.router.navigate([`/editar-endereco/${idClienteEndereco}`]);
+  }
+
+  cadastrarEndereco() {
+    this.router.navigate(['/cadastrar-endereco/']);
+  }
+  
+  deletarEndereco(idClienteEndereco: any)
+  {
+    this.clienteService.deletarEndereco(idClienteEndereco)
+      .subscribe(cliente => {
+        this.cliente = cliente;
+    })
+    .add(() => {
+      this.listarEnderecos(this.idCliente);
+    });
+  }
+
+  listarEnderecos(idCliente: any) {  
+    this.clienteService.listarEnderecos(idCliente)
+      .subscribe(clienteEnderecos => {
+        this.clienteEnderecos = clienteEnderecos;
+    }); 
   } 
 
 }

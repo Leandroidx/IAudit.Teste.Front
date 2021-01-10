@@ -11,7 +11,6 @@
       <td>Email</td>  
       <td>Data Nascimento</td>  
       <td>Descrição</td>  
-      <td>Adicionar Endereço</td> 
       <td>Editar</td>
       <td>Deletar</td>
     </tr>  
@@ -21,7 +20,6 @@
       <td>{{cli.email}}</td>  
       <td>{{ cli.dataNascimento | date: 'dd/MM/yyyy' }}</td>  
       <td>{{cli.descricao}}</td>  
-      <td><a (click)="adicionarEndereco(cli.idCliente)" class="btn btn-warning">Adicionar Endereço</a></td>  
       <td><a (click)="editarCliente(cli.idCliente)" class="btn btn-warning">Editar</a></td>  
       <td><a (click)="deletarCliente(cli.idCliente)" class="btn btn-danger">Deletar</a></td>    
     </tr>  

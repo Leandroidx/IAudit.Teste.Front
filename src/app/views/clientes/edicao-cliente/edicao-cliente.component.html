@@ -56,60 +56,33 @@
       </table>  
       </div>  
       <br>
-<!-- 
-      <div class="row" *ngFor="let endereco of cliente.clienteEnderecos">  
-        <table class="table">  
-        <tr>  
-          <td>Nome</td>  
-          <td>  
-            <input type="hidden" formControlName="ClienteId">  
-            <input type="text" formControlName="Nome">  
-            <div *ngIf="postado && ClienteForm.controls.Nome.errors" class="text-danger">  
-              <div *ngIf="ClienteForm.controls.Nome.errors.required">O nome é obrigatório</div>  
-            </div>   
-          </td>  
-        </tr>  
-        <tr>  
-          <td>Cpf</td>  
-          <td><input type="text" formControlName="Cpf">  
-            <div *ngIf="postado && ClienteForm.controls.Cpf.errors" class="text-danger">  
-              <div *ngIf="ClienteForm.controls.Cpf.errors.required">O Cpf é obrigatório</div>  
-            </div>   
-          </td>  
-        </tr>  
-        <tr>  
-          <td>Email</td>  
-          <td>  
-            <input type="text" formControlName="Email">  
-            <div *ngIf="postado && ClienteForm.controls.Email.errors" class="text-danger">  
-              <div *ngIf="ClienteForm.controls.Email.errors.required">O Email é obrigatório</div>  
-            </div>  
-          </td>  
-        </tr>  
-        <tr>  
-          <td>Data Nascimento</td>  
-          <td>  
-            <input type="text" formControlName="DataNascimento">  
-            <div *ngIf="postado && ClienteForm.controls.DataNascimento.errors" class="text-danger">  
-              <div *ngIf="ClienteForm.controls.DataNascimento.errors.required">A data de sascimento é obrigatório</div>  
-            </div>  
-          </td>  
-        </tr>  
-        <tr>  
-            <td>Descrião</td>  
-            <td>  
-              <input type="text" formControlName="Descricao">  
-              <div *ngIf="postado && ClienteForm.controls.Descricao.errors" class="text-danger">  
-                <div *ngIf="ClienteForm.controls.Descricao.errors.required">A descricao é obrigatória</div>  
-              </div>  
-            </td>  
+      <h3>Endereços</h3>
+      <div>
+        <a (click)="cadastrarEndereco()" class="btn btn-warning">Cadastrar Endereço</a>
+      </div>
+      <div class="row">  
+        <table class="table table-striped">  
+          <tr>  
+            <td>Endereco</td> 
+            <td>Complemento</td>  
+            <td>Bairro</td>  
+            <td>Cidade</td>  
+            <td>Estado</td>  
+            <td>País</td>  
+            <td>Editar</td>
+            <td>Deletar</td>
           </tr>  
-        <tr>  
-          <td colspan="2">  
-            <button type="submit" class="btn btn-primary">Atualizar</button>  
-          </td>  
-        </tr>  
-      </table>  
-      </div>   -->
+          <tr *ngFor="let end of clienteEnderecos">  
+            <td>{{end.endereco}}</td>  
+            <td>{{end.complamento}}</td>  
+            <td>{{end.bairro}}</td>  
+            <td>{{end.cidade}}</td>  
+            <td>{{end.estado}}</td>  
+            <td>{{end.pais}}</td>  
+            <td><a (click)="editarCliente(end.IdClienteEndereco)" class="btn btn-warning">Editar</a></td>  
+            <td><a (click)="deletarCliente(end.IdClienteEndereco)" class="btn btn-danger">Deletar</a></td>    
+          </tr>  
+        </table>  
+      </div> 
    </form>      
   </div> 

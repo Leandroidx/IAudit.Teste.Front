@@ -1,5 +1,5 @@
-export default class ClienteComplemento {
-    Id: number;
+export default class ClienteEndereco {
+    IdClienteEndereco: number;
     IdCliente: number;
     Cep: string;
     Endereco: string;

@@ -36,8 +36,8 @@ export class ListagemClientesComponent {
   }
 
   cadastrarCliente() {
-    this.router.navigate(['/cadastrar-endereco/']);
-}
+    this.router.navigate(['/cadastrar-cliente/']);
+  }
 
   editarCliente(idCliente: any) {
     this.router.navigate([`/editar-cliente/${idCliente}`]);
