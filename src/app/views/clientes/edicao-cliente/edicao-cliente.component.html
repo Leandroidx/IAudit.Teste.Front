@@ -65,24 +65,27 @@
           <tr>  
             <td>Endereco</td> 
             <td>Complemento</td>  
+            <td>Cep</td>  
             <td>Bairro</td>  
             <td>Cidade</td>  
             <td>Estado</td>  
             <td>País</td>  
-            <td>Editar</td>
             <td>Deletar</td>
           </tr>  
           <tr *ngFor="let end of clienteEnderecos">  
             <td>{{end.endereco}}</td>  
             <td>{{end.complamento}}</td>  
+            <td>{{end.cep}}</td> 
             <td>{{end.bairro}}</td>  
             <td>{{end.cidade}}</td>  
             <td>{{end.estado}}</td>  
             <td>{{end.pais}}</td>  
-            <td><a (click)="editarEndereco(end.IdClienteEndereco)" class="btn btn-warning">Editar</a></td>  
-            <td><a (click)="deletarEndereco(end.IdClienteEndereco)" class="btn btn-danger">Deletar</a></td>    
+            <td><a (click)="deletarEndereco(end.idClienteEndereco)" class="btn btn-danger">Deletar</a></td>    
           </tr>  
         </table>  
       </div> 
    </form>      
   </div> 
+  <div>
+    <a (click)="voltar()" class="btn btn-warning">Voltar</a>
+  </div>

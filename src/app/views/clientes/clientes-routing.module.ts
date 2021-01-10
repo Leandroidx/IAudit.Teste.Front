@@ -22,7 +22,7 @@ const routes: Routes = [
             }
         },
         {
-          path: 'cadastrar-endereco',
+          path: 'cadastrar-endereco/:id',
           component: CadastroEnderecoComponent,
           data: {
               title: 'Cadastrar Endereco'
@@ -34,7 +34,7 @@ const routes: Routes = [
           data: {
               title: 'Editar Cliente'
           }
-        } 
+        }
   ];
 
 @NgModule({

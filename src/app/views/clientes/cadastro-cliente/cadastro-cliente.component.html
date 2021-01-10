@@ -1,0 +1,62 @@
+<div class="container">  
+    <form [formGroup]="ClienteForm" (ngSubmit)="cadastrarCliente()">  
+        <h3>Cadastrar Cliente</h3>  
+        <div class="row">  
+        <table class="table">  
+        <tr>  
+          <td>Nome</td>  
+          <td>  
+            <input type="text" formControlName="Nome">  
+            <div *ngIf="postado && ClienteForm.controls.Nome.errors" class="text-danger">  
+              <div *ngIf="ClienteForm.controls.Nome.errors.required">O nome é obrigatório</div>  
+            </div>   
+          </td>  
+        </tr>  
+        <tr>  
+          <td>Cpf</td>  
+          <td><input type="text" formControlName="Cpf">  
+            <div *ngIf="postado && ClienteForm.controls.Cpf.errors" class="text-danger">  
+              <div *ngIf="ClienteForm.controls.Cpf.errors.required">O Cpf é obrigatório</div>  
+            </div>   
+          </td>  
+        </tr>  
+        <tr>  
+          <td>Email</td>  
+          <td>  
+            <input type="text" formControlName="Email">  
+            <div *ngIf="postado && ClienteForm.controls.Email.errors" class="text-danger">  
+              <div *ngIf="ClienteForm.controls.Email.errors.required">O Email é obrigatório</div>  
+            </div>  
+          </td>  
+        </tr>  
+        <tr>  
+          <td>Data Nascimento</td>  
+          <td>  
+            <input type="text" formControlName="DataNascimento">  
+            <div *ngIf="postado && ClienteForm.controls.DataNascimento.errors" class="text-danger">  
+              <div *ngIf="ClienteForm.controls.DataNascimento.errors.required">A data de Nascimento é obrigatório</div>  
+            </div>  
+          </td>  
+        </tr>  
+        <tr>  
+            <td>Descrião</td>  
+            <td>  
+              <input type="text" formControlName="Descricao">  
+              <div *ngIf="postado && ClienteForm.controls.Descricao.errors" class="text-danger">  
+                <div *ngIf="ClienteForm.controls.Descricao.errors.required">A Descricao é obrigatória</div>  
+              </div>  
+            </td>  
+          </tr>  
+        <tr>  
+          <td colspan="2">  
+            <button type="submit" class="btn btn-primary">Salvar</button>  
+          </td>  
+        </tr>  
+      </table>  
+      </div>  
+      <br> 
+   </form>      
+  </div> 
+  <div>
+    <a (click)="voltar()" class="btn btn-warning">Voltar</a>
+  </div>

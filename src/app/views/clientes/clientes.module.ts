@@ -6,7 +6,6 @@ import { CadastroEnderecoComponent } from '../clientes/cadastro-endereco/cadastr
 import { EdicaoClientesComponent } from '../clientes/edicao-cliente/edicao-cliente.component';
 import { ClientesRoutingModule } from '../clientes/clientes-routing.module';
 
-
 @NgModule({
     declarations: [
         CadastroClienteComponent,

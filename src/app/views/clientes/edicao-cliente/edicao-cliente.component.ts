@@ -15,7 +15,7 @@ export class EdicaoClientesComponent {
   constructor(private clienteService: ClienteService, 
     private route: ActivatedRoute,
     private router: Router) { }  
-  cliente: any;  
+  cliente: Cliente;  
   clienteEnderecos: any;  
   ClienteForm: FormGroup;  
   postado = false;   
@@ -34,7 +34,7 @@ export class EdicaoClientesComponent {
       Cpf: new FormControl("",[Validators.required]),  
       Email: new FormControl("",[Validators.required]),  
       DataNascimento:new FormControl("",[Validators.required])
-    })  
+    });  
   }
   
   obterCliente(idCliente: number) {  
@@ -56,7 +56,7 @@ export class EdicaoClientesComponent {
       .subscribe(cliente => {
         this.cliente = cliente;
 
-        this.limparFormulario();
+        this.voltar();
     }); 
   } 
 
@@ -82,7 +82,11 @@ export class EdicaoClientesComponent {
   }
 
   cadastrarEndereco() {
-    this.router.navigate(['/cadastrar-endereco/']);
+    this.router.navigate([`/cadastrar-endereco/${this.idCliente}`]);
+  }
+
+  voltar() {
+    this.router.navigate(['/listagem-cliente/']);
   }
   
   deletarEndereco(idClienteEndereco: any)

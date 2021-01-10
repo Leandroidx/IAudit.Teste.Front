@@ -1,1 +1,80 @@
-teste
+<div class="container">  
+<form [formGroup]="CadastroEnderecoForm" (ngSubmit)="cadastrarClienteEndereco()">  
+<h3>Cadastrar Endereço</h3>  
+    <div class="row">  
+      <table class="table">  
+        <tr>  
+          <td>Endereço</td>  
+          <td>  
+            <input type="hidden" formControlName="IdCliente">  
+            <input type="text" formControlName="Endereco">  
+            <div *ngIf="postado && CadastroEnderecoForm.controls.Endereco.errors" class="text-danger">  
+              <div *ngIf="CadastroEnderecoForm.controls.Endereco.errors.required">O Endereço é obrigatório</div>  
+            </div>   
+          </td>  
+        </tr> 
+        <tr>  
+            <td>Complemento</td>  
+            <td>  
+                <div> 
+                    <input type="text" formControlName="Complemento">  
+                </div>  
+            </td>  
+        </tr>  
+        <tr>  
+          <td>Cep</td>  
+          <td><input type="text" formControlName="Cep">  
+            <div *ngIf="postado && CadastroEnderecoForm.controls.Cep.errors" class="text-danger">  
+              <div *ngIf="CadastroEnderecoForm.controls.Cep.errors.required">O Cep é obrigatório</div>  
+            </div>   
+          </td>  
+        </tr>  
+        <tr>  
+          <td>Bairro</td>  
+          <td>  
+            <input type="text" formControlName="Bairro">  
+            <div *ngIf="postado && CadastroEnderecoForm.controls.Bairro.errors" class="text-danger">  
+              <div *ngIf="CadastroEnderecoForm.controls.Bairro.errors.required">O Bairro é obrigatório</div>  
+            </div>  
+          </td>  
+        </tr>  
+        <tr>  
+          <td>Cidade</td>  
+          <td>  
+            <input type="text" formControlName="Cidade">  
+            <div *ngIf="postado && CadastroEnderecoForm.controls.Cidade.errors" class="text-danger">  
+              <div *ngIf="CadastroEnderecoForm.controls.Cidade.errors.required">A Cidade é obrigatória</div>  
+            </div>  
+          </td>  
+        </tr>  
+        <tr>  
+            <td>Estado</td>  
+            <td>  
+              <input type="text" formControlName="Estado">  
+              <div *ngIf="postado && CadastroEnderecoForm.controls.Estado.errors" class="text-danger">  
+                <div *ngIf="CadastroEnderecoForm.controls.Estado.errors.required">O Estado é obrigatório</div>  
+              </div>  
+            </td>  
+        </tr>  
+        <tr>  
+            <td>País</td>  
+            <td>  
+                <input type="text" formControlName="Pais">  
+                <div *ngIf="postado && CadastroEnderecoForm.controls.Pais.errors" class="text-danger">  
+                    <div *ngIf="CadastroEnderecoForm.controls.Pais.errors.required">O Pais é obrigatório</div>  
+                </div>  
+            </td>  
+        </tr>  
+        <tr> 
+          <td colspan="2">  
+            <button type="submit" class="btn btn-primary">Salvar</button>  
+          </td>  
+        </tr>  
+     </table>  
+    </div>  
+</form> 
+</div>     
+<div>
+<a (click)="voltar()" class="btn btn-warning">Voltar</a>
+</div> 
+
