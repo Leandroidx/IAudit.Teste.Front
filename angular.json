@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "IAudit"
+    }
+  },
+  "defaultProject": "IAudit",
+  "cli": {
+    "analytics": "92e7557d-0402-4760-a5cc-39af0cfc3928"
+  }
 }
